@@ -5,26 +5,23 @@ class New_Game
   end
 
   def vibe_check
-    if @player1.lives === 0
-    puts "#{@player2} wins with a score of #{@player2.lives}/3"
-    puts "____ GAME OVER ____"
-    elsif @player2.lives === 0
-    puts "#{@player1} wins with a score of #{@player1.lives}/3"
-    puts "____ GAME OVER ____"
-    end
+    @player1.lives > 0 && @player2.lives > 0
   end
 
   def game
-    vibe_check
     @player1.question
     puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
-    vibe_check
     @player2.question
     puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
-    if @player1.lives > 0 || @player2.lives > 0
+    if vibe_check
       puts "----- NEW TURN -----"
       game
-    else
+    elsif @player1.lives === 0
+      puts "#{@player2.name} wins with a score of #{@player2.lives}/3"
+      puts "____ GAME OVER ____"
+    elsif @player2.lives === 0
+      puts "#{@player1.name} wins with a score of #{@player1.lives}/3"
+      puts "____ GAME OVER ____"
       puts "Good bye!"
     end
   end
