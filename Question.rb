@@ -16,12 +16,11 @@ module Question
     math_question
     input = gets.chomp.to_i
     if input === @answer
-      puts "Correct!"
+      puts "#{@name} you are correct!"
     else
-      puts "WRONG!!!!!"
+      puts "#{@name} you are WRONG!!!!!"
       wrong
-      puts @lives
-      puts @answer
+      puts "Correct answer is: #{@answer}."
     end
   end
 end
